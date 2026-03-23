@@ -109,6 +109,9 @@ const mockActiveLoan: ActiveLoan = {
   remainingTerm: 18,
 };
 
+/**
+ * Lending and loan management page.
+ */
 export default function LendingPage() {
   const router = useRouter();
   const opts = useApiOpts();

@@ -15,6 +15,9 @@ function formatDate(iso: string) {
   return new Date(iso).toLocaleString(undefined, { dateStyle: 'short', timeStyle: 'short' });
 }
 
+/**
+ * SME Statements list page.
+ */
 export default function SmeStatementsPage() {
   const opts = useApiOpts();
   const [transfers, setTransfers] = useState<TransferItem[]>([]);

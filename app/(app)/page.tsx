@@ -39,6 +39,9 @@ function formatDate(iso: string) {
   return d.toLocaleDateString();
 }
 
+/**
+ * Home dashboard page showing balance and recent activity.
+ */
 export default function Home() {
   const [showBalance, setShowBalance] = useState(true);
   const opts = useApiOpts();

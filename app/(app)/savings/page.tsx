@@ -96,6 +96,9 @@ const mockGoals: SavingsGoal[] = [
   },
 ];
 
+/**
+ * Savings management page.
+ */
 export default function SavingsPage() {
   const router = useRouter();
   const opts = useApiOpts();
@@ -166,19 +169,17 @@ export default function SavingsPage() {
       <PageContainer>
         <div className="space-y-6">
           {/* API balance */}
-          {(positionsLoading || positionsBalance != null) && (
-            <Card className="border-border bg-gradient-to-br from-green-500/10 to-green-600/10 p-5">
-              <div className="flex items-center justify-between mb-2">
-                <h2 className="text-lg font-bold text-foreground">Savings balance (API)</h2>
-                <PiggyBank className="w-5 h-5 text-green-600" />
-              </div>
-              <p className="text-3xl font-bold text-foreground mb-1">{positionsLoading ? '—' : `AFK ${formatAmount(positionsBalance)}`}</p>
-              <div className="flex gap-2 mt-3">
-                <Link href="/savings/deposit"><Button size="sm" variant="outline" className="border-border">Deposit</Button></Link>
-                <Link href="/savings/withdraw"><Button size="sm" variant="outline" className="border-border">Withdraw</Button></Link>
-              </div>
-            </Card>
-          )}
+          <Card className="border-border bg-gradient-to-br from-green-500/10 to-green-600/10 p-5">
+            <div className="flex items-center justify-between mb-2">
+              <h2 className="text-lg font-bold text-foreground">Savings balance (API)</h2>
+              <PiggyBank className="w-5 h-5 text-green-600" />
+            </div>
+            <p className="text-3xl font-bold text-foreground mb-1">{positionsLoading ? '—' : `AFK ${formatAmount(positionsBalance)}`}</p>
+            <div className="flex gap-2 mt-3">
+              <Link href="/savings/deposit"><Button size="sm" variant="outline" className="border-border">Deposit</Button></Link>
+              <Link href="/savings/withdraw"><Button size="sm" variant="outline" className="border-border">Withdraw</Button></Link>
+            </div>
+          </Card>
 
           {/* Overview Card */}
           <Card className="border-border bg-gradient-to-br from-green-500/10 to-green-600/10 p-5">

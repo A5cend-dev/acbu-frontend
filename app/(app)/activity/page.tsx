@@ -15,6 +15,9 @@ function formatDate(iso: string) {
   return new Date(iso).toLocaleString(undefined, { dateStyle: 'short', timeStyle: 'short' });
 }
 
+/**
+ * Activity feed page displaying a list of all transactions.
+ */
 export default function ActivityPage() {
   const opts = useApiOpts();
   const [transfers, setTransfers] = useState<TransferItem[]>([]);

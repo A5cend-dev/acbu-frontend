@@ -15,6 +15,9 @@ function formatDate(iso: string) {
   return new Date(iso).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' });
 }
 
+/**
+ * Detailed view of a specific transfer by ID.
+ */
 export default function TransferDetailPage() {
   const params = useParams();
   const id = params?.id as string;
@@ -82,7 +85,6 @@ export default function TransferDetailPage() {
   }
 
   const status = (data.status as string) ?? '—';
-  const amount = (data.amount_acbu as string) ?? '—';
   const createdAt = (data.created_at as string) ?? '';
   const completedAt = (data.completed_at as string) ?? '';
   const txHash = (data.blockchain_tx_hash as string) ?? '';

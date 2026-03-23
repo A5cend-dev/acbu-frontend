@@ -15,6 +15,9 @@ function formatDate(iso: string) {
   return new Date(iso).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' });
 }
 
+/**
+ * Detailed view of an SME transfer.
+ */
 export default function SmeTransferDetailPage() {
   const params = useParams();
   const id = params?.id as string;

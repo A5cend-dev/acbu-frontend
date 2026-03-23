@@ -18,6 +18,9 @@ import {
 import { ArrowDown, ArrowUp, TrendingUp } from 'lucide-react';
 import { formatAmount } from '@/lib/utils';
 
+/**
+ * Currency management hub.
+ */
 export default function CurrencyPage() {
   const [activeTab, setActiveTab] = useState<'mint' | 'burn' | 'international'>(
     'mint'

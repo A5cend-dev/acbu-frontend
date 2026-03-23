@@ -13,10 +13,15 @@ export function formatAmount(
   amount: string | number | null | undefined,
   decimals = 7,
 ): string {
-  if (amount === null || amount === undefined) return "—";
+  if (
+    amount === null ||
+    amount === undefined ||
+    (typeof amount === "string" && amount.trim() === "")
+  )
+    return "—";
 
-  const num = typeof amount === "string" ? parseFloat(amount) : amount;
-  if (isNaN(num)) return "—";
+  const num = typeof amount === "string" ? Number(amount) : amount;
+  if (Number.isNaN(num)) return "—";
 
   return new Intl.NumberFormat("en-US", {
     minimumFractionDigits: 0,

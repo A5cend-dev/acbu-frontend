@@ -51,6 +51,9 @@ function formatDate(iso: string) {
   return d.toLocaleDateString();
 }
 
+/**
+ * Page component for sending AFK tokens.
+ */
 export default function SendPage() {
   const opts = useApiOpts();
   const [activeTab, setActiveTab] = useState('send');
@@ -59,6 +62,7 @@ export default function SendPage() {
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
   const [selectedContact, setSelectedContact] = useState<ContactItem | null>(null);
   const [amount, setAmount] = useState('');
+  const [lastSentAmount, setLastSentAmount] = useState('');
   const [note, setNote] = useState('');
   const [customRecipient, setCustomRecipient] = useState('');
   const [useContact, setUseContact] = useState(true);
@@ -98,6 +102,7 @@ export default function SendPage() {
       setShowConfirmDialog(false);
       setShowSendDialog(false);
       setShowSuccessDialog(true);
+      setLastSentAmount(amount);
       setAmount('');
       setNote('');
       setCustomRecipient('');
@@ -267,7 +272,7 @@ export default function SendPage() {
           <div className="flex flex-col items-center text-center py-6">
             <div className="rounded-full bg-green-100 p-4 mb-4"><Check className="h-8 w-8 text-green-600" /></div>
             <h2 className="text-xl font-bold text-foreground mb-2">Transfer Sent!</h2>
-            <p className="text-muted-foreground mb-4">Your transfer for AFK {formatAmount(amount)} is being processed.</p>
+            <p className="text-muted-foreground mb-4">Your transfer for AFK {formatAmount(lastSentAmount)} is being processed.</p>
             <Badge variant="secondary" className="mb-4">Pending</Badge>
           </div>
         </DialogContent>

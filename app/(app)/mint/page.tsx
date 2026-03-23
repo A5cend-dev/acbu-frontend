@@ -25,6 +25,9 @@ import { formatAmount } from '@/lib/utils';
 
 const BALANCE_PLACEHOLDER = '—';
 
+/**
+ * Mint and Burn page for ACBU tokens.
+ */
 export default function MintPage() {
   const router = useRouter();
   const opts = useApiOpts();

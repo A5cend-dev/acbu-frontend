@@ -16,6 +16,9 @@ function formatDate(iso: string) {
   return new Date(iso).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' });
 }
 
+/**
+ * Detailed view of a specific transaction by ID.
+ */
 export default function TransactionDetailPage() {
   const params = useParams();
   const id = params?.id as string;

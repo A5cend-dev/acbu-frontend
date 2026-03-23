@@ -75,6 +75,9 @@ const billProviders: BillProvider[] = [
   },
 ];
 
+/**
+ * Bill payment and history page.
+ */
 export default function BillsPage() {
   const [activeTab, setActiveTab] = useState<'catalog' | 'history'>('catalog');
   const [selectedProvider, setSelectedProvider] = useState<BillProvider | null>(null);
